@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My React App</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <script type="module">
+        import { main } from "./build/dev/javascript/gild_html/gild_html.mjs";
+
+        // converting array of arrays to object
+        // gleam will automatically add some helper functions to the array
+        // but i havn't found a more simple way to convert it to the object
+        // that react expects
+        function toObject(arrayOfArrays) {
+            return arrayOfArrays.reduce((acc, [key, value]) => {
+                acc[key] = value;
+                return acc;
+            }, {});
+        }
+        
+        let ele = main()
+
+        let props_array = ele[1].toArray();
+        let props = toObject(props_array);
+
+
+        // creating a React element
+        const element = React.createElement(ele[0], props, ele[2]);
+
+        // rendering to the dom
+        ReactDOM.render(element, document.getElementById('app'));
+    </script>
+    <div id="app"></div>
+</body>
+</html>
