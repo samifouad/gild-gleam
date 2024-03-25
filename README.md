@@ -28,7 +28,8 @@ pub fn main() {
 ```
 
 output:
-```#("div", [#("className", "bg-white p-4"), #("id", "container")], "hello world!")
+```
+#("div", [#("className", "bg-white p-4"), #("id", "container")], "hello world!")
 ```
 
 after removing the debug print, you can run `gleam build --target javascript` and see the `index.html` file for how it's used
