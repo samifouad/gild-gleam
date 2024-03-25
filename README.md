@@ -17,16 +17,20 @@ pub fn config() {
 }
 
 pub fn main() {
-  let jsx = r.jsx("<h1>Hello, name</h1>")
-
-  io.debug(jsx)
-
   let element =
     r.create_element("div")
     |> r.prop(#("id", "container"))
     |> r.prop(#("className", "bg-white p-4"))
     |> r.children(jsx)
 
-  r.render(element)
+  io.debug(r.render(element))
 }
 ```
+
+output:
+```#("div", [#("className", "bg-white p-4"), #("id", "container")], "hello world!")
+```
+
+after removing the debug print, you can run `gleam build --target javascript` and see the `index.html` file for how it's used
+
+run `npx serve` and check out the results
