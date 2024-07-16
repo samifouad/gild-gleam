@@ -12,12 +12,6 @@ import gild/os/debian
 import gild/types.{type VM}
 import gild/vm
 
-pub fn project(members: List(VM)) -> String {
-  cluster.new()
-  |> cluster.name("my cool project")
-  |> cluster.export()
-}
-
 pub fn home() -> VM {
   vm.new()
   |> vm.name("home")
@@ -40,11 +34,11 @@ pub fn work() -> VM {
 pub fn main() {
   let c =
     cluster.new()
-    |> cluster.name("from africa with love")
+    |> cluster.name("my cool project")
     |> cluster.member(home())
     |> cluster.member(work())
     |> cluster.export()
-  //io.debug(c)
+  io.debug(c)
 }
 ```
 
