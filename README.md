@@ -7,7 +7,8 @@ extremely alpha
 feedback welcome!
 
 example usage:
-```import gild/cluster
+```
+import gild/cluster
 import gild/os/debian
 import gild/types.{type VM}
 import gild/vm
