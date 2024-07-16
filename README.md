@@ -14,7 +14,7 @@ import gild/vm
 
 pub fn project(members: List(VM)) -> String {
   cluster.new()
-  |> cluster.name("my sweet project")
+  |> cluster.name("my cool project")
   |> cluster.export()
 }
 
