@@ -1,4 +1,4 @@
-# gild_frontend
+# gild
 
 work in progress
 
@@ -7,31 +7,48 @@ extremely alpha
 feedback welcome!
 
 example usage:
-```import gild/app
-import gild/react as r
-import gleam/io
+```import gild/cluster
+import gild/os/debian
+import gild/types.{type VM}
+import gild/vm
 
-pub fn config() {
-  app.settings()
-  |> app.title("My React App")
+pub fn project(members: List(VM)) -> String {
+  cluster.new()
+  |> cluster.name("my sweet project")
+  |> cluster.export()
+}
+
+pub fn home() -> VM {
+  vm.new()
+  |> vm.name("home")
+  |> vm.os(debian.version("12"))
+  |> vm.update()
+  |> vm.install("mysql_server")
+  |> vm.return()
+}
+
+pub fn work() -> VM {
+  vm.new()
+  |> vm.name("work")
+  |> vm.os(debian.version("12"))
+  |> vm.update()
+  |> vm.install("apache2")
+  |> vm.install("mysql_server php")
+  |> vm.return()
 }
 
 pub fn main() {
-  let element =
-    r.create_element("div")
-    |> r.prop(#("id", "container"))
-    |> r.prop(#("className", "bg-white p-4"))
-    |> r.children(jsx)
-
-  io.debug(r.render(element))
+  let c =
+    cluster.new()
+    |> cluster.name("from africa with love")
+    |> cluster.member(home())
+    |> cluster.member(work())
+    |> cluster.export()
+  //io.debug(c)
 }
 ```
 
 output:
-```
-#("div", [#("className", "bg-white p-4"), #("id", "container")], "hello world!")
-```
+![sample json output](sample_json_output.png)
 
-after removing the debug print, you can run `gleam build --target javascript` and see the `index.html` file for how it's used
-
-run `npx serve` and check out the results
+this library is used to help create visualizations inside the [linkha.sh](http://linkha.sh) online playground and will be used inside a cli utility to make the declarative configuration come to life

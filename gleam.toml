@@ -1,14 +1,16 @@
-name = "gild_frontend"
-version = "0.1.1"
+name = "gild"
+version = "0.3.0"
 
 target = "javascript"
 
-description = "react client-side framework for gleam"
+description = "infrastructure as code"
 licences = ["MIT"]
-repository = { type = "github", user = "samifouad", repo = "gild_frontend" }
+repository = { type = "github", user = "samifouad", repo = "gild" }
 links = [{ title = "Website", href = "https://gild.gg" }]
 
 [dependencies]
+gleam_json = ">= 2.0.0 and < 3.0.0"
+ids = ">= 0.13.0 and < 1.0.0"
 
 [dev-dependencies]
 gleam_stdlib = "~> 0.34 or ~> 1.0"

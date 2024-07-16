@@ -2,13 +2,12 @@
 <html>
 <head>
     <title>My React App</title>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <script type="module">
-        import { main } from "./build/dev/javascript/gild_html/gild_html.mjs";
+        import { main } from "./build/dev/javascript/gild/gild.mjs";
+        import * as gleam from "./build/dev/javascript/gild/gleam.mjs";
 
         // converting array of arrays to object
         // gleam will automatically add some helper functions to the array
@@ -23,15 +22,7 @@
         
         let ele = main()
 
-        let props_array = ele[1].toArray();
-        let props = toObject(props_array);
-
-
-        // creating a React element
-        const element = React.createElement(ele[0], props, ele[2]);
-
-        // rendering to the dom
-        ReactDOM.render(element, document.getElementById('app'));
+        console.log(gleam.List)
     </script>
     <div id="app"></div>
 </body>
