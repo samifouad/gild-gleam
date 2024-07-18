@@ -33,13 +33,11 @@ pub fn work() -> VM {
 }
 
 pub fn main() {
-  let c =
     cluster.new()
     |> cluster.name("my cool project")
     |> cluster.member(home())
     |> cluster.member(work())
     |> cluster.export()
-  io.debug(c)
 }
 ```
 
