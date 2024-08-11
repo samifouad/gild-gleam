@@ -43,6 +43,6 @@ pub fn main() {
 
 output:
 
-![sample json output](sample_json_output.png)
+![sample json output](https://raw.githubusercontent.com/samifouad/gild/main/sample_json_output.png)
 
 this library is used to help create visualizations inside the [linkha.sh](http://linkha.sh) online playground and will be used inside a cli utility to make the declarative configuration come to life
