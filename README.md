@@ -1,10 +1,4 @@
-# gild
-
-work in progress
-
-extremely alpha
-
-feedback welcome!
+this is a work in progress. it's extremely alpha. any feedback welcome during the design phase.
 
 example usage:
 ```
